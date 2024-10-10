@@ -1,4 +1,4 @@
-import analyze from '@/utils/ai'
+import { analyze } from '@/utils/ai'
 import { getUserByClerkId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 import { revalidatePath } from 'next/cache'
@@ -21,7 +21,6 @@ export const POST = async () => {
     },
   })
 
-  revalidatePath('/journal')
-
+  console.log('created entry', entry)
   return NextResponse.json({ data: entry })
 }
